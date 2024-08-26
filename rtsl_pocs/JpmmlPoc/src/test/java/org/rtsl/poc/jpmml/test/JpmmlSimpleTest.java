@@ -47,7 +47,8 @@ public final class JpmmlSimpleTest {
                 .load(new File("./src/test/resources/sample_score.pmml.xml"))
                 .build();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
+            long t1 = System.nanoTime();
             Map<String, Object> input = new HashMap<>();
             input.put("param1", 50);
             input.put("param2", 33);
@@ -55,8 +56,9 @@ public final class JpmmlSimpleTest {
 
             LOGGER.info("Using input fields: {}", input);
             Map<String, ?> results = evaluator.evaluate(input);
+            long processTime = System.nanoTime() - t1;
 
-            LOGGER.info("Results are: {}", results);
+            LOGGER.info("Results are obtained in <{}> ns. Result is: {}", processTime, results);
         }
 
     }
