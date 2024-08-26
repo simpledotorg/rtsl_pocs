@@ -47,15 +47,17 @@ public final class JpmmlSimpleTest {
                 .load(new File("./src/test/resources/sample_score.pmml.xml"))
                 .build();
 
-        Map<String, Object> input = new HashMap<>();
-        input.put("param1", 50);
-        input.put("param2", 33);
-        input.put("finalscore", 33);
+        for (int i = 0; i < 100; i++) {
+            Map<String, Object> input = new HashMap<>();
+            input.put("param1", 50);
+            input.put("param2", 33);
+            input.put("finalscore", 33);
 
-        LOGGER.info("Using input fields: {}", input);
-        Map<String, ?> results = evaluator.evaluate(input);
+            LOGGER.info("Using input fields: {}", input);
+            Map<String, ?> results = evaluator.evaluate(input);
 
-        LOGGER.info("Results are: {}", results);
+            LOGGER.info("Results are: {}", results);
+        }
 
     }
 
