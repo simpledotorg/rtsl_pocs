@@ -1,10 +1,12 @@
 package org.rtsl.poc.jpmml.test;
 
-import java.io.File;
+import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
-import org.jpmml.evaluator.Evaluator;
-import org.jpmml.evaluator.LoadingModelEvaluatorBuilder;
+import org.dmg.pmml.PMML;
+import org.jpmml.evaluator.ModelEvaluator;
+import org.jpmml.evaluator.ModelEvaluatorBuilder;
+import org.jpmml.model.jackson.JacksonUtil;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +18,24 @@ public final class JpmmlSimpleTest {
     @Test
     public void simpleTestAudit() throws Exception {
 
+        String filePath = "./src/test/resources/single_audit_dectree.json";
+        LOGGER.info("Loading file <{}>", filePath);
+        PMML testPMML = JacksonUtil.readPMML(new FileInputStream(filePath));
+        ModelEvaluator evaluator = new ModelEvaluatorBuilder(testPMML).build();
+
         LOGGER.info("Loading a file ");
-        Evaluator evaluator = new LoadingModelEvaluatorBuilder()
+
+        /*
+        // PMML testPMML = JacksonUtil.readPMML(new FileInputStream("./src/test/resources/single_audit_dectree.xml"));
+        LoadingModelEvaluatorBuilder evaluatorBuilder = new LoadingModelEvaluatorBuilder();
+        evaluatorBuilder.setJAXBContext(MetroJAXBUtil.getContext());
+        LOGGER.info("@@@@@@@" + evaluatorBuilder.getJAXBContext());
+
+        Evaluator evaluator = evaluatorBuilder
                 .load(new File("./src/test/resources/single_audit_dectree.xml"))
                 .build();
-
+        
+        /**/
         Map<String, Object> input = new HashMap<>();
         input.put("Age", "Private");
         input.put("Employment", 33);
@@ -36,17 +51,24 @@ public final class JpmmlSimpleTest {
         Map<String, ?> results = evaluator.evaluate(input);
 
         LOGGER.info("Results are: {}", results);
-
     }
 
     @Test
     public void simpleTestScore() throws Exception {
+        String filePath = "./src/test/resources/sample_score.pmml.json";
+        LOGGER.info("Loading file <{}>", filePath);
+        PMML testPMML = JacksonUtil.readPMML(new FileInputStream(filePath));
+        ModelEvaluator evaluator = new ModelEvaluatorBuilder(testPMML).build();
 
-        LOGGER.info("Loading a file ");
-        Evaluator evaluator = new LoadingModelEvaluatorBuilder()
-                .load(new File("./src/test/resources/sample_score.pmml.xml"))
-                .build();
-
+        /**
+         * LoadingModelEvaluatorBuilder evaluatorBuilder = new
+         * LoadingModelEvaluatorBuilder();
+         * evaluatorBuilder.setJAXBContext(MetroJAXBUtil.getContext());
+         * LOGGER.info("@@@@@@@" + evaluatorBuilder.getJAXBContext());
+         *
+         * Evaluator evaluator = evaluatorBuilder .load(new
+         * File("./src/test/resources/sample_score.pmml.xml")) .build(); /*
+         */
         int max = 1000;
         long totalNs = 0;
         for (int i = 0; i < max; i++) {

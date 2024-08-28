@@ -11,11 +11,15 @@
     <artifactId>JpmmlPoc</artifactId>
     <packaging>jar</packaging>
     <version>0.0.0</version>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
             <groupId>org.jpmml</groupId>
-            <artifactId>pmml-evaluator</artifactId>
+            <artifactId>pmml-evaluator-jackson</artifactId>
             <version>1.6.5</version>
         </dependency>
         <dependency>
@@ -23,19 +27,6 @@
             <artifactId>pmml-model-jackson</artifactId>
             <version>1.6.5</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api -->
-        <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>4.0.2</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
-            <version>4.0.5</version>
-        </dependency>
-
         <!-- test dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
