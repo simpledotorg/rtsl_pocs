@@ -23,19 +23,6 @@ public final class JpmmlSimpleTest {
         PMML testPMML = JacksonUtil.readPMML(new FileInputStream(filePath));
         ModelEvaluator evaluator = new ModelEvaluatorBuilder(testPMML).build();
 
-        LOGGER.info("Loading a file ");
-
-        /*
-        // PMML testPMML = JacksonUtil.readPMML(new FileInputStream("./src/test/resources/single_audit_dectree.xml"));
-        LoadingModelEvaluatorBuilder evaluatorBuilder = new LoadingModelEvaluatorBuilder();
-        evaluatorBuilder.setJAXBContext(MetroJAXBUtil.getContext());
-        LOGGER.info("@@@@@@@" + evaluatorBuilder.getJAXBContext());
-
-        Evaluator evaluator = evaluatorBuilder
-                .load(new File("./src/test/resources/single_audit_dectree.xml"))
-                .build();
-        
-        /**/
         Map<String, Object> input = new HashMap<>();
         input.put("Age", "Private");
         input.put("Employment", 33);
@@ -60,15 +47,6 @@ public final class JpmmlSimpleTest {
         PMML testPMML = JacksonUtil.readPMML(new FileInputStream(filePath));
         ModelEvaluator evaluator = new ModelEvaluatorBuilder(testPMML).build();
 
-        /**
-         * LoadingModelEvaluatorBuilder evaluatorBuilder = new
-         * LoadingModelEvaluatorBuilder();
-         * evaluatorBuilder.setJAXBContext(MetroJAXBUtil.getContext());
-         * LOGGER.info("@@@@@@@" + evaluatorBuilder.getJAXBContext());
-         *
-         * Evaluator evaluator = evaluatorBuilder .load(new
-         * File("./src/test/resources/sample_score.pmml.xml")) .build(); /*
-         */
         int max = 1000;
         long totalNs = 0;
         for (int i = 0; i < max; i++) {
@@ -77,15 +55,12 @@ public final class JpmmlSimpleTest {
             input.put("param1", 50);
             input.put("param2", 33);
             input.put("finalscore", 33);
-
             LOGGER.info("Using input fields: {}", input);
             Map<String, ?> results = evaluator.evaluate(input);
             long processTime = System.nanoTime() - t1;
             totalNs = totalNs + processTime;
-
             LOGGER.info("Results are obtained in <{}> ns. Result is: {}", processTime, results);
         }
-
         LOGGER.info("Average Process Time was <{}> nanoseconds", totalNs / max);
     }
 
