@@ -1,1 +1,6 @@
-
+test_data_metric{refdate="1701385200",date="2023-12-01",facility="facility A"} 32
+test_data_metric{refdate="1701385200",date="2023-12-01",facility="facility B"} 12
+test_data_metric{refdate="1701385200",date="2023-12-01",facility="facility C"} 14
+test_data_metric{refdate="1698793200",date="2024-01-01",facility="facility A"} 12
+test_data_metric{refdate="1698793200",date="2024-01-01",facility="facility B"} 13
+test_data_metric{refdate="1698793200",date="2024-01-01",facility="facility C"} 14
