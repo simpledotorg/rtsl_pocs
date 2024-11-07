@@ -1,0 +1,20 @@
+
+name: Build Artefacts
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          repository: simpledotorg/rtsl_utils
+          run-id: 239
+      - name: List things
+        run: |
+          ls -alrt $GITHUB_WORKSPACE
+          find $GITHUB_WORKSPACE
