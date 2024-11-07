@@ -14,7 +14,8 @@ jobs:
         with:
           repository: simpledotorg/rtsl_utils
           run-id: 240
-          github-token: "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"
+          github-token: ${{ secrets.DOWNLOAD_ARTIFACT_TOKEN }}
+
       - name: List things
         run: |
           ls -alrt $GITHUB_WORKSPACE
