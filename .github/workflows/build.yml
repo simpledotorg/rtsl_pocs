@@ -16,5 +16,6 @@ jobs:
           run-id: 240
       - name: List things
         run: |
+          wget -O Dhis2Verifier.jar https://github.com/simpledotorg/rtsl_utils/actions/runs/11718214435/artifacts/2156228078
           ls -alrt $GITHUB_WORKSPACE
           find $GITHUB_WORKSPACE
