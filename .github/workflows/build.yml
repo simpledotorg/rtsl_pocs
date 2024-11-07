@@ -14,8 +14,8 @@ jobs:
         with:
           repository: simpledotorg/rtsl_utils
           run-id: 240
+          github-token: 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 
       - name: List things
         run: |
-          wget -O $GITHUB_WORKSPACE/Dhis2Verifier.jar https://github.com/simpledotorg/rtsl_utils/actions/runs/11718214435/artifacts/2156228078
           ls -alrt $GITHUB_WORKSPACE
           find $GITHUB_WORKSPACE
