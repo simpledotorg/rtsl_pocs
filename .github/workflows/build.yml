@@ -18,7 +18,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           repository: simpledotorg/rtsl_utils
-          run-id: 240
+          run-id: 239
           github-token: ${{ secrets.DOWNLOAD_ARTIFACT_TOKEN }}
 
       - name: List things
