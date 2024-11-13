@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List things
+        run: |
+          find .
+          ls
+      - name: start docker
         working-directory: ./docker_run
         run: |
           docker compose create
