@@ -19,4 +19,4 @@ jobs:
         working-directory: ./docker_run
         run: |
           docker compose create
-          dokcer compose run
+          docker compose run
