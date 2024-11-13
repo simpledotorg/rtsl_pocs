@@ -1,5 +1,5 @@
 
-name: Test Dockerd
+name: Test Docker Compose Run
 
 on:
   push:
