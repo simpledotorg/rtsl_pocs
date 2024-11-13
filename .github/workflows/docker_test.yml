@@ -17,11 +17,13 @@ jobs:
           docker compose create
           docker compose up -d
           echo "waiting for docker system to start"
-          sleep 20
+          sleep 10
           echo "Docker system presumably started ..."
       - name: Check the image works fine
         run: |
           docker ps
+          docker cp docker_run-prometheusdbexporter-1:/usr/local/tomcat/logs ./test_container_logs
+          cat ./test_container_logs/*
           wget -O test.prom http://localhost:8080/PrometheusDbExporter/metrics
           cat test.prom
       - name: stop docker
