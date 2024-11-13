@@ -11,15 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: List things
-        run: |
-          find .
-          ls
       - name: start docker
         working-directory: ./docker_run
         run: |
           docker compose create
           docker compose up -d
+      - name: Check the image works fine
+        run: |
+          wget -O test.prom http://localhost:8080/PrometheusDbExporter/metrics
+          cat test.prom
+      - name: stop docker
+        working-directory: ./docker_run
+        run: |
+          docker compose down
 
-
-          
