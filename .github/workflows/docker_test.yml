@@ -1,0 +1,17 @@
+
+name: Test Dockerd
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List things
+        run: |
+          cd docker_run
+          docker compose create
+          dokcer compose run
