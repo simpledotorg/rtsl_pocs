@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Add hosts to /etc/hosts
+        run: |
+          sudo echo "127.0.0.1 host.docker.internal" | sudo tee -a /etc/hosts
       - name: start docker
         working-directory: ./docker_run
         run: |
