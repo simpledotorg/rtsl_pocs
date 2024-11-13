@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List things
+        working-directory: ./docker_run
         run: |
-          cd docker_run
           docker compose create
           dokcer compose run
