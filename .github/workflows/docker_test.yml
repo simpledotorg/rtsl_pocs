@@ -21,7 +21,7 @@ jobs:
           echo "Docker system presumably started ..."
       - name: Check the image works fine
         run: |
-          find .
+          docker ps
           wget -O test.prom http://localhost:8080/PrometheusDbExporter/metrics
           cat test.prom
       - name: stop docker
