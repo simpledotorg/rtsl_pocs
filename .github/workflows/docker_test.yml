@@ -16,6 +16,9 @@ jobs:
         run: |
           docker compose create
           docker compose up -d
+          echo "waiting for docker system to start"
+          sleep 20
+          echo "Docker system presumably started ..."
       - name: Check the image works fine
         run: |
           wget -O test.prom http://localhost:8080/PrometheusDbExporter/metrics
