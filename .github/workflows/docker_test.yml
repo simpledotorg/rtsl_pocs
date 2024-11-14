@@ -31,7 +31,7 @@ jobs:
           docker exec  "docker_run-prometheusdbexporter-1" apt-get update -y
           docker exec  "docker_run-prometheusdbexporter-1" apt-get install -y iputils-ping           
           docker exec  "docker_run-prometheusdbexporter-1" ping -c 4 database
-          cat ./test_container_logs/*
+          #cat ./test_container_logs/*
           wget -O test.prom http://localhost:8080/PrometheusDbExporter/metrics
           cat test.prom
       - name: stop docker
