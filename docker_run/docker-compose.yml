@@ -25,7 +25,6 @@ services:
       POSTGRES_PASSWORD: &postgres_password dhis
       PGPASSWORD: *postgres_password # needed by psql in healthcheck
     volumes:
-    - ./target/tmp:/tmp
     - ./sources:/app/rtsl/prom_db_exporter/sources
       
       
