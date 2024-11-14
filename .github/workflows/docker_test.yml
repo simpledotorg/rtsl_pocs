@@ -20,8 +20,9 @@ jobs:
           docker compose create
           docker compose up -d
           echo "waiting for docker system to start"
-          # docker compose stop prometheusdbexporter
-          #docker compose start
+          sleep 10
+          docker compose stop prometheusdbexporter
+          docker compose start
           sleep 10
           echo "Docker system presumably started ..."
       - name: Check the image works fine
