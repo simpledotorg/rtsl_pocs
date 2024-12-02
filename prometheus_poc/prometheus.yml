@@ -1,5 +1,5 @@
 global:
-  scrape_interval: 15s
+  scrape_interval: 10s
 
 scrape_configs:
   - job_name: "prometheus"
@@ -9,7 +9,8 @@ scrape_configs:
   - job_name: "test_metrics"
     scrape_interval: 30s
     scrape_timeout: 5s
-    scheme: https
-    metrics_path: "/simpledotorg/rtsl_pocs/master/prometheus_poc/metrics"
+    fallback_scrape_protocol: PrometheusText1.0.0
+    scheme: http
+    metrics_path: "/static/metrics"
     static_configs:
-    - targets: ["raw.githubusercontent.com"]
+    - targets: ["tomcat:8080"]
