@@ -13,3 +13,11 @@ services:
       - 3001:3000
     volumes:
       - ./grafana_provisioning:/etc/grafana/provisioning
+  tomcat:
+    image: tomcat:11
+    ports:
+      - 8080:8080
+    volumes:
+      - ./metrics:/tmp/metrics
+      - ./static.xml:/usr/local/tomcat/conf/Catalina/localhost/static.xml
+
