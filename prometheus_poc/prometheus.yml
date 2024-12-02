@@ -13,4 +13,3 @@ scrape_configs:
     metrics_path: "/simpledotorg/rtsl_pocs/master/prometheus_poc/metrics"
     static_configs:
     - targets: ["raw.githubusercontent.com"]
-    
