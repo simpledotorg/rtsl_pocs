@@ -16,3 +16,36 @@ scrape_configs:
     - targets: ["tomcat:8080"]
       labels:
         testLabelKey: 'testLabelValue'
+
+  - job_name: "backbox_exporter_metrics"
+    scheme: http
+    metrics_path: "/metrics"
+    static_configs:
+    - targets: ["blackboxexporter:9115"]
+      labels:
+        testLabel1: 'testValue1'
+
+  - job_name: "blackbox_simple_india_production"
+    scheme: http
+    metrics_path: "/probe"
+    params:
+      target: ["https://api.simple.org/api/v3/ping"]
+    fallback_scrape_protocol: PrometheusText1.0.0
+    static_configs:
+    - targets: ["blackboxexporter:9115"]
+      labels:
+        urlTarget: 'india-production'
+
+  - job_name: "blackbox_simple_bd_production"
+    scheme: http
+    metrics_path: "/probe"
+    params:
+      target: ["https://api.bd.simple.org/api/v3/ping"]
+    fallback_scrape_protocol: PrometheusText1.0.0
+    static_configs:
+    - targets: ["blackboxexporter:9115"]
+      labels:
+        urlTarget: 'bangladesh-prodution'
+
+
+

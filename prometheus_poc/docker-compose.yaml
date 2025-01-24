@@ -25,4 +25,7 @@ services:
     volumes:
       - ./metrics:/tmp/metrics
       - ./static.xml:/usr/local/tomcat/conf/Catalina/localhost/static.xml
-
+  blackboxexporter:
+    image: quay.io/prometheus/blackbox-exporter:latest 
+    ports:
+      - 9115:9115
