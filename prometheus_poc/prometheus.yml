@@ -34,7 +34,8 @@ scrape_configs:
     static_configs:
     - targets: ["blackboxexporter:9115"]
       labels:
-        urlTarget: 'india-production'
+        country: 'ind'
+        environment: 'prod'
 
   - job_name: "blackbox_simple_bd_production"
     scheme: http
@@ -45,7 +46,32 @@ scrape_configs:
     static_configs:
     - targets: ["blackboxexporter:9115"]
       labels:
-        urlTarget: 'bangladesh-prodution'
+        country: 'bgd'
+        environment: 'prod'
 
+  - job_name: 'blackbox_exporter_probes'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]  # Look for a HTTP 200 response.
+    static_configs:
+      - targets: [ 'https://api.simple.org/api/v3/ping' ]
+        labels:
+          country: 'ind'
+          environment: 'prod'
+      - targets: [ 'https://api.bd.simple.org/api/v3/ping' ]
+        labels:
+          country: 'bgd'
+          environment: 'prod' 
+      - targets: [ 'https://api-simple.health.gov.lk/api/v3/ping' ]
+        labels:
+          country: 'lka'
+          environment: 'prod'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackboxexporter:9115  # The blackbox exporter's real hostname:port.
 
 
