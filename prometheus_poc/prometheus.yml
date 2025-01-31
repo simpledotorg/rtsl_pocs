@@ -75,3 +75,21 @@ scrape_configs:
         replacement: blackboxexporter:9115  # The blackbox exporter's real hostname:port.
 
 
+  - job_name: 'federate_central_prometheus'
+    scheme: https
+    scrape_interval: 15s
+    honor_labels: true
+    metrics_path: '/federate'
+    params:
+        'match[]':
+          - '{__name__=~".+"}'
+    static_configs:
+      - targets: [ 'prometheus.simple.org' ]
+        labels:
+          country: 'test'
+          environment: 'test'
+    basic_auth:
+      username: 'admin@simple.org'
+      password: 'check_in_one_password'
+
+
