@@ -35,5 +35,548 @@ test_data_metric{date="2024-11-01",facility="facility A"} 330
 test_data_metric{date="2024-11-01",facility="facility B"} 190
 test_data_metric{date="2024-11-01",facility="facility C"} 600
 
-lol_metric_in_the_past 12 1733130915000
-lol_metric_now 12
+
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-01-01"} 12
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-02-01"} 23
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-03-01"} 38
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-04-01"} 51
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-05-01"} 65
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-06-01"} 78
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-07-01"} 93
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-08-01"} 105
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-09-01"} 119
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-10-01"} 135
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-11-01"} 152
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2023-12-01"} 168
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-01-01"} 185
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-02-01"} 203
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-03-01"} 218
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-04-01"} 235
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-05-01"} 253
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-06-01"} 272
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-07-01"} 290
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-08-01"} 307
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-09-01"} 321
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-10-01"} 336
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-11-01"} 348
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2024-12-01"} 350
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC1", date="2025-01-01"} 350 
+
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-01-01"} 15
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-02-01"} 28
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-03-01"} 43
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-04-01"} 59
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-05-01"} 74
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-06-01"} 91
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-07-01"} 107
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-08-01"} 125
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-09-01"} 142
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-10-01"} 158
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-11-01"} 176
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2023-12-01"} 193
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-01-01"} 211
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-02-01"} 228
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-03-01"} 246
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-04-01"} 263
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-05-01"} 281
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-06-01"} 299
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-07-01"} 315
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-08-01"} 332
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-09-01"} 349
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-10-01"} 367 
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-11-01"} 384
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2024-12-01"} 401
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-PHC2", date="2025-01-01"} 419
+
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-01-01"} 18
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-02-01"} 35
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-03-01"} 52
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-04-01"} 71
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-05-01"} 90
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-06-01"} 112
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-07-01"} 133
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-08-01"} 156
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-09-01"} 178
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-10-01"} 201
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-11-01"} 225
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2023-12-01"} 248
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-01-01"} 273
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-02-01"} 296
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-03-01"} 322
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-04-01"} 347
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-05-01"} 372
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-06-01"} 398
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-07-01"} 423
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-08-01"} 450
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-09-01"} 475
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-10-01"} 502
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-11-01"} 528
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2024-12-01"} 555
+patients_under_care{country="Oz", region="Munchkin Country", facility="MC-CC1", date="2025-01-01"} 583
+
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-01-01"} 11
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-02-01"} 25
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-03-01"} 40
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-04-01"} 56
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-05-01"} 73
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-06-01"} 91
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-07-01"} 108
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-08-01"} 127
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-09-01"} 146
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-10-01"} 165
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-11-01"} 185
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2023-12-01"} 206
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-01-01"} 227
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-02-01"} 249
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-03-01"} 271
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-04-01"} 294
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-05-01"} 317
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-06-01"} 341
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-07-01"} 365
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-08-01"} 390
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-09-01"} 415
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-10-01"} 441
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-11-01"} 467
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2024-12-01"} 494
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC1", date="2025-01-01"} 521
+
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-01-01"} 13
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-02-01"} 29
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-03-01"} 46
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-04-01"} 64
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-05-01"} 82
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-06-01"} 101
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-07-01"} 121
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-08-01"} 142
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-09-01"} 163
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-10-01"} 185
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-11-01"} 208
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2023-12-01"} 231
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-01-01"} 255
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-02-01"} 279
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-03-01"} 304
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-04-01"} 330
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-05-01"} 356
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-06-01"} 383
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-07-01"} 410
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-08-01"} 438
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-09-01"} 467
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-10-01"} 496
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-11-01"} 526
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2024-12-01"} 556
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC2", date="2025-01-01"} 587
+
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-01-01"} 16
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-02-01"} 31
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-03-01"} 48
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-04-01"} 66
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-05-01"} 85
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-06-01"} 105
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-07-01"} 126
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-08-01"} 148
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-09-01"} 170
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-10-01"} 194
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-11-01"} 218
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2023-12-01"} 243
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-01-01"} 269
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-02-01"} 296
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-03-01"} 323
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-04-01"} 351
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-05-01"} 379
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-06-01"} 408
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-07-01"} 437
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-08-01"} 467
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-09-01"} 497
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-10-01"} 528
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-11-01"} 559
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2024-12-01"} 591
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-PHC3", date="2025-01-01"} 623
+
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-01-01"} 14
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-02-01"} 26
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-03-01"} 41
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-04-01"} 57
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-05-01"} 74
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-06-01"} 93
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-07-01"} 112
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-08-01"} 133
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-09-01"} 154
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-10-01"} 176
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-11-01"} 198
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2023-12-01"} 221
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-01-01"} 245
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-02-01"} 269
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-03-01"} 294
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-04-01"} 319
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-05-01"} 345
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-06-01"} 372
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-07-01"} 399
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-08-01"} 427
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-09-01"} 455
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-10-01"} 484
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2024-11-01"} 513
+patients_under_care{country="Oz", region="Winkie Country", facility="WC-CC1", date="2025-12-01"} 550
+
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-01-01"} 17
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-02-01"} 33
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-03-01"} 50
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-04-01"} 68
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-05-01"} 87
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-06-01"} 108
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-07-01"} 129
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-08-01"} 151
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-09-01"} 174
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-10-01"} 197
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-11-01"} 222
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2023-12-01"} 247
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-01-01"} 273
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-02-01"} 300
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-03-01"} 327
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-04-01"} 356
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-05-01"} 384
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-06-01"} 414
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-07-01"} 444
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-08-01"} 475
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-09-01"} 507
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-10-01"} 539
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-11-01"} 572
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2024-12-01"} 605
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC1", date="2025-01-01"} 639
+
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-01-01"} 19
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-02-01"} 37
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-03-01"} 56
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-04-01"} 76
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-05-01"} 97
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-06-01"} 119
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-07-01"} 141
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-08-01"} 165
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-09-01"} 188
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-10-01"} 213
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-11-01"} 239
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2023-12-01"} 266
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-01-01"} 294
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-02-01"} 322
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-03-01"} 352
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-04-01"} 382
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-05-01"} 413
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-06-01"} 445
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-07-01"} 478
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-08-01"} 511
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-09-01"} 545
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-10-01"} 580
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-11-01"} 616
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2024-12-01"} 653
+patients_under_care{country="Oz", region="Gillikin Country", facility="GC-PHC2", date="2025-01-01"} 691
+
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-01-01"} 21
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-02-01"} 40
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-03-01"} 61
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-04-01"} 83
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-05-01"} 106
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-06-01"} 130
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-07-01"} 155
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-08-01"} 181
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-09-01"} 208
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-10-01"} 237
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-11-01"} 266
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2023-12-01"} 297
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-01-01"} 328
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-02-01"} 361
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-03-01"} 394
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-04-01"} 428
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-05-01"} 463
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-06-01"} 499
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-07-01"} 536
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-08-01"} 574
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-09-01"} 612
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-10-01"} 652
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-11-01"} 692
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2024-12-01"} 734
+patients_under_care{country="Oz", region="Quadling Country", facility="QC-CC1", date="2025-01-01"} 776
+
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-01-01"} 20
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-02-01"} 39
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-03-01"} 59
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-04-01"} 80
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-05-01"} 102
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-06-01"} 125
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-07-01"} 148
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-08-01"} 173
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-09-01"} 198
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-10-01"} 224
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-11-01"} 251
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2023-12-01"} 278
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-01-01"} 307
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-02-01"} 336
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-03-01"} 366
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-04-01"} 397
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-05-01"} 429
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-06-01"} 461
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-07-01"} 494
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-08-01"} 528
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-09-01"} 563
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-10-01"} 598
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-11-01"} 634
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2024-12-01"} 671
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC1", date="2025-01-01"} 708
+
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-01-01"} 22
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-02-01"} 42
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-03-01"} 63
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-04-01"} 85
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-05-01"} 108
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-06-01"} 132
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-07-01"} 157
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-08-01"} 183
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-09-01"} 210
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-10-01"} 238
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-11-01"} 267
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2023-12-01"} 296
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-01-01"} 327
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-02-01"} 358
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-03-01"} 390
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-04-01"} 423
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-05-01"} 456
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-06-01"} 490
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-07-01"} 525
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-08-01"} 561
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-09-01"} 597
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-10-01"} 634
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-11-01"} 672
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2024-12-01"} 711
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC2", date="2025-01-01"} 750
+
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-01-01"} 24
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-02-01"} 45
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-03-01"} 68
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-04-01"} 91
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-05-01"} 116
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-06-01"} 142
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-07-01"} 169
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-08-01"} 197
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-09-01"} 226
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-10-01"} 256
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-11-01"} 287
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2023-12-01"} 319
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-01-01"} 352
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-02-01"} 386
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-03-01"} 420
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-04-01"} 456
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-05-01"} 492
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-06-01"} 529
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-07-01"} 567
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-08-01"} 606
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-09-01"} 646
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-10-01"} 686
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-11-01"} 728
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2024-12-01"} 770
+patients_under_care{country="Oz", region="Emerald City", facility="EC-CC3", date="2025-01-01"} 814
+
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-01-01"} 19
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-02-01"} 36
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-03-01"} 55
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-04-01"} 75
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-05-01"} 96
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-06-01"} 118
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-07-01"} 140
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-08-01"} 164
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-09-01"} 187
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-10-01"} 213
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-11-01"} 239
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2023-12-01"} 266
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-01-01"} 294
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-02-01"} 322
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-03-01"} 352
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-04-01"} 382
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-05-01"} 413
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-06-01"} 445
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-07-01"} 478
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-08-01"} 511
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-09-01"} 545
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-10-01"} 580
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-11-01"} 616
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2024-12-01"} 653
+patients_under_care{country="Ennor", region="Gondor", facility="Minas Tirith PHC", date="2025-01-01"} 691
+
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-01-01"} 22
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-02-01"} 41
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-03-01"} 62
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-04-01"} 84
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-05-01"} 107
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-06-01"} 131
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-07-01"} 156
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-08-01"} 182
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-09-01"} 209
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-10-01"} 237
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-11-01"} 266
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2023-12-01"} 296
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-01-01"} 327
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-02-01"} 359
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-03-01"} 391
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-04-01"} 424
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-05-01"} 458
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-06-01"} 492
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-07-01"} 527
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-08-01"} 563
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-09-01"} 600
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-10-01"} 638
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-11-01"} 676
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2024-12-01"} 715
+patients_under_care{country="Ennor", region="Gondor", facility="Edhellond PHC", date="2025-01-01"} 755
+
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-01-01"} 25
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-02-01"} 47
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-03-01"} 70
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-04-01"} 94
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-05-01"} 119
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-06-01"} 145
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-07-01"} 172
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-08-01"} 200
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-09-01"} 229
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-10-01"} 259
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-11-01"} 290
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2023-12-01"} 322
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-01-01"} 355
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-02-01"} 388
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-03-01"} 423
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-04-01"} 458
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-05-01"} 494
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-06-01"} 531
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-07-01"} 569
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-08-01"} 607
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-09-01"} 647
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-10-01"} 687
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-11-01"} 728
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2024-12-01"} 770
+patients_under_care{country="Ennor", region="Gondor", facility="Pelargir CC", date="2025-01-01"} 813
+
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-01-01"} 18
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-02-01"} 34
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-03-01"} 51
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-04-01"} 69
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-05-01"} 88
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-06-01"} 108
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-07-01"} 129
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-08-01"} 151
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-09-01"} 173
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-10-01"} 197
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-11-01"} 221
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2023-12-01"} 246
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-01-01"} 272
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-02-01"} 298
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-03-01"} 325
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-04-01"} 353
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-05-01"} 381
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-06-01"} 410
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-07-01"} 439
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-08-01"} 469
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-09-01"} 500
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-10-01"} 531
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-11-01"} 563
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2024-12-01"} 596
+patients_under_care{country="Ennor", region="Mordor", facility="Mt Domm PHC", date="2025-01-01"} 629
+
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-01-01"} 21
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-02-01"} 38
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-03-01"} 57
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-04-01"} 77
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-05-01"} 98
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-06-01"} 120
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-07-01"} 143
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-08-01"} 167
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-09-01"} 192
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-10-01"} 218
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-11-01"} 245
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2023-12-01"} 273
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-01-01"} 301
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-02-01"} 330
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-03-01"} 360
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-04-01"} 391
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-05-01"} 423
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-06-01"} 456
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-07-01"} 490
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-08-01"} 525
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-09-01"} 561
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-10-01"} 598
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-11-01"} 636
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2024-12-01"} 675
+patients_under_care{country="Ennor", region="Mordor", facility="Minas Morgul PHC", date="2025-01-01"} 715
+
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-01-01"} 23
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-02-01"} 44
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-03-01"} 66
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-04-01"} 89
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-05-01"} 113
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-06-01"} 138
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-07-01"} 164
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-08-01"} 191
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-09-01"} 219
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-10-01"} 248
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-11-01"} 278
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2023-12-01"} 309
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-01-01"} 341
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-02-01"} 374
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-03-01"} 407
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-04-01"} 442
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-05-01"} 477
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-06-01"} 513
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-07-01"} 550
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-08-01"} 588
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-09-01"} 626
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-10-01"} 666
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-11-01"} 706
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2024-12-01"} 747
+patients_under_care{country="Ennor", region="Mordor", facility="Black Gate CC", date="2025-01-01"} 789
+
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-01-01"} 17
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-02-01"} 32
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-03-01"} 49
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-04-01"} 67
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-05-01"} 86
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-06-01"} 106
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-07-01"} 127
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-08-01"} 149
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-09-01"} 172
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-10-01"} 196
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-11-01"} 220
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2023-12-01"} 246
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-01-01"} 272
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-02-01"} 299
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-03-01"} 327
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-04-01"} 356
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-05-01"} 385
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-06-01"} 415
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-07-01"} 446
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-08-01"} 478
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-09-01"} 510
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-10-01"} 543
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-11-01"} 577
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2024-12-01"} 611
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan PCH1", date="2025-01-01"} 646
+
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-01-01"} 20
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-02-01"} 38
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-03-01"} 57
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-04-01"} 77
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-05-01"} 98
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-06-01"} 120
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-07-01"} 143
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-08-01"} 167
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-09-01"} 192
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-10-01"} 218
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-11-01"} 245
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2023-12-01"} 273
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-01-01"} 302
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-02-01"} 331
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-03-01"} 361
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-04-01"} 392
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-05-01"} 424
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-06-01"} 456
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-07-01"} 489
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-08-01"} 523
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-09-01"} 557
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-10-01"} 592
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-11-01"} 628
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2024-12-01"} 665
+patients_under_care{country="Ennor", region="Rohan", facility="Rohan CC1", date="2025-01-01"} 702
