@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -620,17 +620,17 @@
           "text": "1737646479",
           "value": "1737646479"
         },
-        "definition": "query_result(time())",
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "P44368ADAD746BC27"
+        },
+        "definition": "SELECT extract(epoch from now())",
         "description": "",
         "includeAll": false,
         "name": "lol",
         "options": [],
-        "query": {
-          "qryType": 3,
-          "query": "query_result(time())",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
+        "query": "SELECT extract(epoch from now())",
+        "refresh": 2,
         "regex": "",
         "type": "query"
       }
@@ -644,6 +644,6 @@
   "timezone": "browser",
   "title": "Example Dashboard",
   "uid": "bea64lh2qwk5cf",
-  "version": 17,
+  "version": 1,
   "weekStart": ""
 }
