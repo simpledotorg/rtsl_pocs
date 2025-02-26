@@ -8,9 +8,39 @@ Reporting in Simple is done inside the production database witf matview which ar
 
 The purpose of this POC is to verify is Prometheus and Grafana can be used to generate high level business reporting. 
 
-## Steps to run the poc locally
+## Running the POC locally
 
-### Getting metrics (Example)
+
+
+### Starting the docker system locally
+
+pull this repo, then
+
+```
+cd prometheus_poc
+docker compose up --no-start
+docker compose start 
+```
+
+### Check the Dashboards !
+
+The following dashboards shows the kind of rendering we can obtain:
+
+| Example  | Dashboard | Comment |
+| ------------- | ------------- | ------------- |
+| Region report  | http://localhost:3001/d/eec1xgb9to83ke | All facilities in the region are aggregated |
+
+
+
+
+
+
+## Under the hood
+
+### 
+
+
+### Getting metrics from (Example)
 
 The following report is an example of what we can obtain with 
 - https://metabase.bd.simple.org/question/980-test-prom-reporting
@@ -31,25 +61,10 @@ The concept is to have a field **date** that contains the corresponding reportin
 
 The result should be placed in file `prometheus_poc/metrics/metrics`
 
+## Grafana Transformations
 
+TODO
 
-### Starting the docker system locally
+## The most overkill workaround ever
 
-pull this repo, then
-
-```
-cd prometheus_poc
-docker compose up --no-start
-docker compose start 
-```
-
-
-### Check the Dashboards !
-
-The following dashboards shows the kind of rendering we can obtain:
-
-| Example  | Dashboard | Comment |
-| ------------- | ------------- | ------------- |
-| Region report  | http://localhost:3001/d/eec1xgb9to83ke | All facilities in the region are aggregated |
-
-
+TODO
