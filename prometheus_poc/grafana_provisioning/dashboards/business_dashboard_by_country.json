@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 4,
   "links": [],
   "panels": [
     {
@@ -105,7 +105,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (date, gender)(reporting_patient_states_by_month{region=\"${Region}\"} @$TIME_NOW)",
+          "expr": "sum by (date, gender)(reporting_patient_states_by_month @$TIME_NOW)",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -230,7 +230,32 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "missed_visit"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -256,7 +281,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (date, outcome)(reporting_patient_states_by_month{region=\"${Region}\"} @$TIME_NOW ) ",
+          "expr": "sum by (date, outcome)(reporting_patient_states_by_month @$TIME_NOW ) ",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -448,7 +473,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100* sum by (date)(reporting_patient_states_by_month{region=\"${Region}\", htn_care_state=\"under_care\",outcome=~\"controlled\"} @$TIME_NOW) / sum by (date)(reporting_patient_states_by_month{region=\"${Region}\", htn_care_state=\"under_care\",outcome=~\"controlled|uncontrolled|visited_no_bp|missed_visit\"} @$TIME_NOW)  ",
+          "expr": "100* sum by (date)(reporting_patient_states_by_month{htn_care_state=\"under_care\",outcome=~\"controlled\"} @$TIME_NOW) / sum by (date)(reporting_patient_states_by_month{htn_care_state=\"under_care\",outcome=~\"controlled|uncontrolled|visited_no_bp|missed_visit\"} @$TIME_NOW)  ",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -606,7 +631,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100* sum by (date)(reporting_patient_states_by_month{region=\"${Region}\", htn_care_state=\"under_care\",outcome=~\"uncontrolled\"} @$TIME_NOW) / sum by (date)(reporting_patient_states_by_month{region=\"${Region}\", htn_care_state=\"under_care\",outcome=~\"controlled|uncontrolled|visited_no_bp|missed_visit\"} @$TIME_NOW)  ",
+          "expr": "100* sum by (date)(reporting_patient_states_by_month{htn_care_state=\"under_care\",outcome=~\"uncontrolled\"} @$TIME_NOW) / sum by (date)(reporting_patient_states_by_month{htn_care_state=\"under_care\",outcome=~\"controlled|uncontrolled|visited_no_bp|missed_visit\"} @$TIME_NOW)  ",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -764,7 +789,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100* sum by (date)(reporting_patient_states_by_month{region=\"${Region}\", htn_care_state=\"under_care\",outcome=~\"missed_visit\"} @$TIME_NOW) / sum by (date)(reporting_patient_states_by_month{region=\"${Region}\", htn_care_state=\"under_care\",outcome=~\"controlled|uncontrolled|visited_no_bp|missed_visit\"} @$TIME_NOW)  ",
+          "expr": "100* sum by (date)(reporting_patient_states_by_month{htn_care_state=\"under_care\",outcome=~\"missed_visit\"} @$TIME_NOW) / sum by (date)(reporting_patient_states_by_month{htn_care_state=\"under_care\",outcome=~\"controlled|uncontrolled|visited_no_bp|missed_visit\"} @$TIME_NOW)  ",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -843,8 +868,8 @@
     "list": [
       {
         "current": {
-          "text": "1740556142.095258",
-          "value": "1740556142.095258"
+          "text": "1740572739.499187",
+          "value": "1740572739.499187"
         },
         "datasource": {
           "type": "grafana-postgresql-datasource",
@@ -860,41 +885,20 @@
       },
       {
         "current": {
-          "text": "003c246c-4fe0-4f30-abdf-acb591ec5629",
-          "value": "003c246c-4fe0-4f30-abdf-acb591ec5629"
+          "text": "798640",
+          "value": "798640"
         },
         "datasource": {
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "definition": "label_values(reporting_patient_states_by_month,region)",
-        "name": "Region",
-        "options": [],
-        "query": {
-          "qryType": 1,
-          "query": "label_values(reporting_patient_states_by_month,region)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "type": "query"
-      },
-      {
-        "current": {
-          "text": "18",
-          "value": "18"
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "PBFA97CFB590B2093"
-        },
-        "definition": "query_result(max(reporting_patient_states_by_month{region=\"${Region}\"}))",
+        "definition": "query_result(max(sum by (date) (reporting_patient_states_by_month)))",
         "hide": 2,
         "name": "PATIENTS_UNDER_CARE",
         "options": [],
         "query": {
           "qryType": 3,
-          "query": "query_result(max(reporting_patient_states_by_month{region=\"${Region}\"}))",
+          "query": "query_result(max(sum by (date) (reporting_patient_states_by_month)))",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -909,8 +913,8 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Example of Business Dashboard",
-  "uid": "eec1xgb9to83ke",
-  "version": 58,
+  "title": "Program Dashboard (Country)",
+  "uid": "cee7wzs6dibk0b",
+  "version": 8,
   "weekStart": ""
 }
