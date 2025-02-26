@@ -26,7 +26,7 @@ This will start a very basic system with the following services
 
 | Service  | image | Comment | Relevant URL |
 | ------------- | ------------- | ------------- | ------------- |
-| grafana | grafana/grafana | out-of-the-box grafana instance default password is admin/admin | http://localhost:3001/|
+| grafana | grafana/grafana | out-of-the-box grafana instance default password is **admin**/**admin** | http://localhost:3001/|
 | prometheus | prom/prometheus | out-of-the-box prometheus instance | http://localhost:9090/ |
 | tomcat | tomcat:11 | used as a simple way to serve metrics in HTTP | http://localhost:8080/static/metrics|
 | blackboxexporter | quay.io/prometheus/blackbox-exporter:latest | **Not related to this POC** | http://localhost:9115/ |
