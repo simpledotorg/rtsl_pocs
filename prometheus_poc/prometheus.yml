@@ -7,7 +7,7 @@ scrape_configs:
     - targets: ["localhost:9090"]
 
   - job_name: "test_metrics"
-    scrape_interval: 30s
+    scrape_interval: 145s
     scrape_timeout: 5s
     fallback_scrape_protocol: PrometheusText1.0.0
     scheme: http
