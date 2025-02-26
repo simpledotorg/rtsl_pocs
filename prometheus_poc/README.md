@@ -1,4 +1,4 @@
-# Prometheus POC
+# Prometheus Reporting POC
 
 ## Challenge
 
