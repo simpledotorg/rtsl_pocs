@@ -39,7 +39,8 @@ The following dashboards shows the kind of rendering we can obtain:
 
 | Example  | Dashboard | Comment |
 | ------------- | ------------- | ------------- |
-| Region report  | http://localhost:3001/d/eec1xgb9to83ke | All facilities in the region are aggregated |
+| Country reportRegion report  | http://localhost:3001/d/cee7wzs6dibk0b | Aggregated for the whole country |
+| Region report  | http://localhost:3001/d/eec1xgb9to83ke | Aggregated by region (all facilities in the region) |
 
 
 
