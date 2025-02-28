@@ -54,6 +54,7 @@ The following dashboards shows the kind of rendering we can obtain:
 
 ### Getting metrics from (Example)
 
+
 The following report is an example of what we can obtain with 
 - https://metabase.bd.simple.org/question/980-test-prom-reporting
 
@@ -71,7 +72,6 @@ reporting_patient_states_by_month{country="test_country", date="2018-01-01", reg
 
 The concept is to have a field **date** that contains the corresponding reporting month, plus any numbrer of other dimentions that make sense for the business (here **country**, **region**, **facility**, **gender**, **htn_care_state**, **htn_treatment_outcome_in_last_3_months**, **status**)
 
-The result should be placed in file `prometheus_poc/metrics/metrics`
 
 ## Grafana Transformations
 
