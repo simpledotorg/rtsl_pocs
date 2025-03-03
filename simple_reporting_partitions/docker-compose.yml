@@ -41,7 +41,7 @@ services:
       CALL_SESSION_REDIS_HOST: redis
       RAILS_CACHE_REDIS_URL: redis://
       RAILS_CACHE_REDIS_PASSWORD: NONE
-      RAILS_ENV: production
+      RAILS_ENV: test
       SIDEKIQ_REDIS_HOST: redis
       SIDEKIQ_CONCURRENCY: 5
       SIMPLE_SERVER_HOST: localhost
