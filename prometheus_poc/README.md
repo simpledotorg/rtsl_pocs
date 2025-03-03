@@ -2,7 +2,20 @@
 
 ## Challenge
 
-Reporting in Simple is done inside the production database witf matview which are refreshed every day. This approach is not viable on the long term as 
+Reporting in Simple is done inside the production database witf matview which are refreshed every day. The problems with this approach are:
+* Every request hits the database
+* Adding aggregations will add load on the production DB + is not straightforward
+* reports in metabase are VERY Long.
+
+The solution proposed here can solve all of that:
+* prom metrics can be cached outside of the production environement, allowing to query them without adding cost to the production DB
+* prom metrics can be cached "partially", allowing to only refresh the most recent data when we expect the more ancient data to be
+* Grafana has all the features we want from a good reporting solution (SSO, nice rendering, configuration as code, ability to connect to various datasources ...)
+
+| :warning: Disclaimer           |
+|:----------------------------|
+| This solution is not optimal and will probably not be directly usable for production purpose.|
+
 
 ## Purpose and Goal
 
@@ -54,6 +67,7 @@ The following dashboards shows the kind of rendering we can obtain:
 
 ### Getting metrics from (Example)
 
+
 The following report is an example of what we can obtain with 
 - https://metabase.bd.simple.org/question/980-test-prom-reporting
 
@@ -71,7 +85,6 @@ reporting_patient_states_by_month{country="test_country", date="2018-01-01", reg
 
 The concept is to have a field **date** that contains the corresponding reporting month, plus any numbrer of other dimentions that make sense for the business (here **country**, **region**, **facility**, **gender**, **htn_care_state**, **htn_treatment_outcome_in_last_3_months**, **status**)
 
-The result should be placed in file `prometheus_poc/metrics/metrics`
 
 ## Grafana Transformations
 
