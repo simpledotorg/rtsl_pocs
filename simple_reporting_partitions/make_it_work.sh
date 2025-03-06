@@ -10,6 +10,13 @@ yes | gem sources --add http://rubygems.org
 ###
 bundle config --delete without
 bundle install
+bundle remove flipper flipper-active_record flipper-ui
+bundle add flipper flipper-active_record flipper-ui --version 1.3.4
+
+###
+### Turns on feature flags
+###
+bundle exec flipper enable :auto_approve_users
 
 ###
 ### Cleans stuff if need be
