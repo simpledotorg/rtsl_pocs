@@ -14,6 +14,9 @@ services:
     image: webdb/app
     ports:
       - "22071:22071"
+    depends_on:
+      server:
+        condition: service_healthy
 
   redis:
     image: redis:5-alpine
@@ -25,6 +28,9 @@ services:
     image: simpledotorg/server
     #command: bash -c "rm -f tmp/pids/server.pid ; bundle install ;  bundle exec rake db:setup ; bundle exec rails s -p 3000 -b '0.0.0.0'"
     command: bash -c "bash ./make_it_work.sh"
+    healthcheck:
+      test: "curl -f http://localhost:3000/api/v3/ping"
+      start_period: 7m
     ports:
       - "3000:3000"
     depends_on:
