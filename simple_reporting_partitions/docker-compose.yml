@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-### psql -h postgres -p 5432 -U postgres
+### psql -h postgres -p 5432 -U postgres -d simple-server_test
   postgres:
     image: postgres:14.3-alpine
     environment:
@@ -39,6 +39,7 @@ services:
     volumes:
       - ./start.sh:/home/app/start.sh
       - ./init.sh:/home/app/init.sh
+      - ./reporting_sql/:/home/app/reporting_sql/
     environment:
       SIMPLE_SERVER_DATABASE_HOST: postgres
       SIMPLE_SERVER_DATABASE_USERNAME: postgres
