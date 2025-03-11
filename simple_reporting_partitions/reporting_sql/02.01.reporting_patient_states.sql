@@ -334,7 +334,6 @@ as $$
 DECLARE
     TARGET_REFERENCE_DATE date := date_trunc('month', $1)::date;
     TARGET_TABLE_KEY varchar := TO_CHAR(TARGET_REFERENCE_DATE,'YYYYMMDD');
-    --TARGET_TO_DATE varchar := 'TO_DATE('|| TARGET_TABLE_KEY ||', ''YYYYMMDD'')';
     TARGET_TO_DATE varchar := 'date_trunc(''month'', TO_DATE('''|| TARGET_TABLE_KEY ||''', ''YYYYMMDD''))::date' ;
     TARGET_TABLE_NAME varchar := 'simple_reporting.reporting_patient_states_shard_' || TARGET_TABLE_KEY;
     DROP_STATEMENT varchar := 'DROP TABLE IF EXISTS ' || TARGET_TABLE_NAME || ';'; 
@@ -351,11 +350,6 @@ DECLARE
     SHARD_STATEMENT varchar := 'ALTER TABLE simple_reporting.reporting_patient_states ATTACH PARTITION ' || TARGET_TABLE_NAME 
         || ' FOR VALUES in  (' 
         || TARGET_TO_DATE || ');';
-
--- date_trunc('month', current_date - interval '2 month')::date);
-
---'ALTER TABLE ' || TARGET_TABLE_NAME || ' ADD CONSTRAINT patient_states_month_date_patient_shard_check CHECK (month_date = TO_DATE(''YYYYMMDD'', ''' || TARGET_TABLE_KEY || '''));';
-
 BEGIN
     RAISE NOTICE 'DROPING   SHARD: %', DROP_STATEMENT ;
     EXECUTE DROP_STATEMENT;
