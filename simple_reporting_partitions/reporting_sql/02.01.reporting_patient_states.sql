@@ -82,6 +82,8 @@ CREATE TABLE IF NOT EXISTS simple_reporting.reporting_patient_states (
     titrated boolean
 ) partition by list (month_date);
 
+
+CREATE UNIQUE INDEX IF NOT EXISTS patient_states_month_date_patient_id ON simple_reporting.reporting_patient_states USING btree (month_date, patient_id);
 CREATE INDEX IF NOT EXISTS index_reporting_patient_states_on_age ON simple_reporting.reporting_patient_states USING btree (age);
 CREATE INDEX IF NOT EXISTS index_reporting_patient_states_on_gender ON simple_reporting.reporting_patient_states USING btree (gender);
 CREATE INDEX IF NOT EXISTS index_reporting_patient_states_on_gender_and_age ON simple_reporting.reporting_patient_states USING btree (gender, age);
@@ -92,7 +94,6 @@ CREATE INDEX IF NOT EXISTS patient_states_assigned_state ON simple_reporting.rep
 CREATE INDEX IF NOT EXISTS patient_states_care_state ON simple_reporting.reporting_patient_states USING btree (hypertension, htn_care_state, htn_treatment_outcome_in_last_3_months);
 CREATE INDEX IF NOT EXISTS patient_states_month_date_assigned_facility ON simple_reporting.reporting_patient_states USING btree (month_date, assigned_facility_id);
 CREATE INDEX IF NOT EXISTS patient_states_month_date_assigned_facility_region ON simple_reporting.reporting_patient_states USING btree (month_date, assigned_facility_region_id);
-CREATE UNIQUE INDEX IF NOT EXISTS patient_states_month_date_patient_id ON simple_reporting.reporting_patient_states USING btree (month_date, patient_id);
 CREATE INDEX IF NOT EXISTS patient_states_month_date_registration_facility ON simple_reporting.reporting_patient_states USING btree (month_date, registration_facility_id);
 CREATE INDEX IF NOT EXISTS patient_states_month_date_registration_facility_region ON simple_reporting.reporting_patient_states USING btree (month_date, registration_facility_region_id);
 CREATE INDEX IF NOT EXISTS reporting_patient_states_bp_facility_id ON simple_reporting.reporting_patient_states USING btree (bp_facility_id);
@@ -323,4 +324,48 @@ INNER JOIN public.reporting_facilities assigned_facility
 WHERE p.deleted_at IS NULL;
 
 end;
+$$;
+
+
+
+CREATE OR REPLACE PROCEDURE simple_reporting.reporting_patient_states_add_shard (date)
+language plpgsql
+as $$
+DECLARE
+    TARGET_REFERENCE_DATE date := date_trunc('month', $1)::date;
+    TARGET_TABLE_KEY varchar := TO_CHAR(TARGET_REFERENCE_DATE,'YYYYMMDD');
+    --TARGET_TO_DATE varchar := 'TO_DATE('|| TARGET_TABLE_KEY ||', ''YYYYMMDD'')';
+    TARGET_TO_DATE varchar := 'date_trunc(''month'', TO_DATE('''|| TARGET_TABLE_KEY ||''', ''YYYYMMDD''))::date' ;
+    TARGET_TABLE_NAME varchar := 'simple_reporting.reporting_patient_states_shard_' || TARGET_TABLE_KEY;
+    DROP_STATEMENT varchar := 'DROP TABLE IF EXISTS ' || TARGET_TABLE_NAME || ';'; 
+    CTAS_STATEMENT varchar := 'CREATE TABLE ' || TARGET_TABLE_NAME 
+        || ' AS SELECT * FROM simple_reporting.reporting_patient_states_table_function(' 
+        || TARGET_TO_DATE || ');';
+    UIND_STATEMENT varchar := 'CREATE UNIQUE INDEX IF NOT EXISTS patient_states_month_date_patient_shard_uind_'
+        || TARGET_TABLE_KEY || ' ON ' 
+        || TARGET_TABLE_NAME
+        || ' USING btree (patient_id);'; 
+    CHECK_STATEMENT varchar := 'ALTER TABLE ' || TARGET_TABLE_NAME 
+        || ' ADD CONSTRAINT patient_states_month_date_patient_shard_check CHECK (month_date = ' 
+        || TARGET_TO_DATE || ');';
+    SHARD_STATEMENT varchar := 'ALTER TABLE simple_reporting.reporting_patient_states ATTACH PARTITION ' || TARGET_TABLE_NAME 
+        || ' FOR VALUES in  (' 
+        || TARGET_TO_DATE || ');';
+
+-- date_trunc('month', current_date - interval '2 month')::date);
+
+--'ALTER TABLE ' || TARGET_TABLE_NAME || ' ADD CONSTRAINT patient_states_month_date_patient_shard_check CHECK (month_date = TO_DATE(''YYYYMMDD'', ''' || TARGET_TABLE_KEY || '''));';
+
+BEGIN
+    RAISE NOTICE 'DROPING   SHARD: %', DROP_STATEMENT ;
+    EXECUTE DROP_STATEMENT;
+    RAISE NOTICE 'CREATING  SHARD: %', CTAS_STATEMENT ;
+    EXECUTE CTAS_STATEMENT;
+    RAISE NOTICE 'CREATING  UIND:  %', UIND_STATEMENT ;
+    EXECUTE UIND_STATEMENT;
+    RAISE NOTICE 'CREATING  CHECK: %', CHECK_STATEMENT ;
+    EXECUTE CHECK_STATEMENT;
+    RAISE NOTICE 'ATTACHING SHARD: %', SHARD_STATEMENT ;
+    EXECUTE SHARD_STATEMENT;
+END;
 $$;

@@ -103,6 +103,7 @@ DROP TABLE SHARD_TEST_003;
 
 CREATE TABLE SHARD_TEST_001 as 
 select * from simple_reporting.reporting_patient_states_table_function(date_trunc('month', current_date)::date);
+CREATE UNIQUE INDEX IF NOT EXISTS patient_states_month_date_patient_id ON SHARD_TEST_001 USING btree (patient_id);
 ALTER TABLE SHARD_TEST_001 ADD CONSTRAINT SHARD_TEST_001_check CHECK (month_date = date_trunc('month', current_date)::date);
 
 ALTER TABLE simple_reporting.reporting_patient_states ATTACH PARTITION SHARD_TEST_001
@@ -112,6 +113,7 @@ ALTER TABLE simple_reporting.reporting_patient_states ATTACH PARTITION SHARD_TES
 
 CREATE TABLE SHARD_TEST_002 as 
 select * from simple_reporting.reporting_patient_states_table_function(date_trunc('month', current_date - interval '1 month')::date);
+CREATE UNIQUE INDEX IF NOT EXISTS patient_states_month_date_patient_id ON SHARD_TEST_002 USING btree (patient_id);
 ALTER TABLE SHARD_TEST_002 ADD CONSTRAINT SHARD_TEST_003_check CHECK (month_date = date_trunc('month', current_date - interval '1 month')::date);
 
 ALTER TABLE simple_reporting.reporting_patient_states ATTACH PARTITION SHARD_TEST_002
@@ -120,6 +122,7 @@ ALTER TABLE simple_reporting.reporting_patient_states ATTACH PARTITION SHARD_TES
 
 CREATE TABLE SHARD_TEST_003 as 
 select * from simple_reporting.reporting_patient_states_table_function(date_trunc('month', current_date - interval '2 month')::date);
+CREATE UNIQUE INDEX IF NOT EXISTS patient_states_month_date_patient_id ON SHARD_TEST_003 USING btree (patient_id);
 ALTER TABLE SHARD_TEST_003 ADD CONSTRAINT SHARD_TEST_003_check CHECK (month_date = date_trunc('month', current_date - interval '2 month')::date);
 
 
@@ -143,9 +146,33 @@ explain select * from simple_reporting.reporting_patient_states where month_date
 
 explain select * from simple_reporting.reporting_patient_states;
 
-explain select * from simple_reporting.reporting_patient_states where age > 40;
-explain select * from simple_reporting.reporting_patient_states where month_date > (date_trunc('month', current_date - interval '2 month')::date) and age > 40;
+explain select sum(age) from simple_reporting.reporting_patient_states where age > 40;
+explain analyse select sum(age) from simple_reporting.reporting_patient_states where month_date > (date_trunc('month', current_date - interval '2 month')::date) and age > 40;
 
 
 
+--- HO 
+call simple_reporting.reporting_patient_states_add_shard(date_trunc('month', current_date)::date);
+call simple_reporting.reporting_patient_states_add_shard(current_date);
+call simple_reporting.reporting_patient_states_add_shard((current_date - interval '1 month' )::date) ;
+call simple_reporting.reporting_patient_states_add_shard((current_date - interval '2 month' )::date) ;
+call simple_reporting.reporting_patient_states_add_shard((current_date - interval '3 month' )::date) ;
 
+
+select * from  information_schema.routines where specific_schema ='simple_reporting';
+
+SELECT version();
+
+
+ALTER TABLE simple_reporting.reporting_patient_states_shard_20250301 ADD CONSTRAINT patient_states_month_date_patient_shard_check CHECK (month_date = TO_DATE('YYYYMMDD', '20250301'));
+
+select * from simple_reporting.reporting_patient_states_shard_20250301;
+select * from simple_reporting.reporting_patient_states_shard_20250201;
+
+select TO_DATE('YYYYMMDD', '20250301');
+select * from SHARD_TEST_001;
+
+select TO_DATE( '20250301','YYYYMMDD')::date;
+
+
+select * from simple_reporting.reporting_patient_states where patient_id  ='0045e9cf-8e17-4911-a300-606b7f4672e5';
