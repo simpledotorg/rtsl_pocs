@@ -63,6 +63,12 @@ call simple_reporting.reporting_patient_states_add_shard((current_date - interva
 call simple_reporting.reporting_patient_states_add_shard((current_date - interval '4 month' )::date) ;
 call simple_reporting.reporting_patient_states_add_shard((current_date - interval '5 month' )::date) ;
 
+-- TESTS REFRESHING THE OLD MVIEW
+CALL simple_reporting.MONITORED_EXECUTE(gen_random_uuid (), 'REPORTING_PATIENT_STATE_MATVIEW_ALL',
+    'REFRESH MATERIALIZED VIEW public.reporting_patient_states');
+
+CALL simple_reporting.MONITORED_EXECUTE(gen_random_uuid (), 'REPORTING_PATIENT_STATE_PARTITION_ALL',
+    'call simple_reporting.reporting_patient_states_add_shard(current_date)');
 
 --
 -- Looking at audit table
@@ -100,3 +106,8 @@ WHERE parent.relname='reporting_patient_states';
 -- Looking at audit table
 -- 
 select * from simple_reporting.SIMPLE_REPORTING_RUNS order by end_date desc;
+
+--
+-- compare with old MView
+--
+REFRESH MATERIALIZED VIEW public.reporting_patient_states;
