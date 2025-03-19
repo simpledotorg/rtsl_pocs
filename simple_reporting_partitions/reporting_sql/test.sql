@@ -13,8 +13,7 @@ select * from public.reporting_patient_states
 
 
 
-
-
+create view public.reporting_patient_states as select * from simple_reporting.reporting_patient_states;
 
 --
 -- Testing ATTACH unitarily 
@@ -66,16 +65,25 @@ call simple_reporting.reporting_patient_states_add_shard((current_date - interva
 
 
 --
+-- Looking at audit table
+-- 
+select * from simple_reporting.SIMPLE_REPORTING_RUNS order by end_date desc;
+
+
+--
 -- Checking Execution plans for various queries to validate indexes are taken in account
 -- 
 
-explain select * from simple_reporting.reporting_patient_states where patient_id  ='0045e9cf-8e17-4911-a300-606b7f4672e5';
-explain select sum(age) from simple_reporting.reporting_patient_states where age > 40;
+explain select * from simple_reporting.reporting_patient_states where patient_id  ='0044112d-70d5-4d8e-8a8a-1eac37d110ad';
+explain select sum(age) from simple_reporting.reporting_patient_states where age > 20;
 explain select sum(age) from simple_reporting.reporting_patient_states where age > 90;
 explain select sum(age) from simple_reporting.reporting_patient_states where month_date > (current_date - interval '2 month');
 explain select sum(age) from simple_reporting.reporting_patient_states where month_date > (current_date - interval '2 month') and age > 90;
 
-
+update simple_reporting.reporting_patient_states
+set assigned_facility_id= '0044112d-70d5-4d8e-8a8a-1eac37d110ad'
+ where patient_id  ='0044112d-70d5-4d8e-8a8a-1eac37d110ad';
+commit;
 --
 -- Looking at children of the table
 --
@@ -88,3 +96,7 @@ FROM pg_inherits
     JOIN pg_namespace nmsp_child    ON nmsp_child.oid   = child.relnamespace
 WHERE parent.relname='reporting_patient_states';
 
+--
+-- Looking at audit table
+-- 
+select * from simple_reporting.SIMPLE_REPORTING_RUNS order by end_date desc;

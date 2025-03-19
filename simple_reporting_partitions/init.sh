@@ -29,5 +29,5 @@ psql -h postgres -p 5432 -U postgres -f db/structure.sql
 ### and FINALLY adds the objects created for this POC
 ### 
 cd reporting_sql
-psql -h postgres -p 5432 -U postgres -d simple-server_test -f reporting_sql/00.run_all.sql
+psql -h postgres -p 5432 -U postgres -d simple-server_test -f ./00.run_all.sql
 cd ..
