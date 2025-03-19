@@ -328,7 +328,7 @@ $$;
 
 
 
-CREATE OR REPLACE PROCEDURE simple_reporting.reporting_patient_states_add_shard (date)
+CREATE OR REPLACE PROCEDURE simple_reporting.reporting_patient_states_add_shard_internal (date)
 language plpgsql
 as $$
 DECLARE
@@ -358,5 +358,37 @@ BEGIN
     CALL simple_reporting.MONITORED_EXECUTE(RUN_KEY, 'REPORTING_PATIENT_STATE_PARTITION_UIND ', UIND_STATEMENT);
     CALL simple_reporting.MONITORED_EXECUTE(RUN_KEY, 'REPORTING_PATIENT_STATE_PARTITION_CHECK', CHECK_STATEMENT);
     CALL simple_reporting.MONITORED_EXECUTE(RUN_KEY, 'REPORTING_PATIENT_STATE_PARTITION_SHARD', SHARD_STATEMENT);
+END;
+$$;
+
+--
+-- The main procedure, that refreshes one given month
+--
+CREATE OR REPLACE PROCEDURE simple_reporting.reporting_patient_states_add_shard (date)
+language plpgsql
+as $$
+DECLARE
+    CALL_INTERNAL_STATEMENT varchar := 'call simple_reporting.reporting_patient_states_add_shard_internal(TO_DATE(''' 
+        || TO_CHAR($1, 'YYYY-MM')
+        || ''', ''YYYY-MM''));';
+BEGIN
+    CALL simple_reporting.MONITORED_EXECUTE(gen_random_uuid (), 'REPORTING_PATIENT_STATE_PARTITION_ALL', CALL_INTERNAL_STATEMENT);
+END;
+$$;
+
+--
+-- HELPER FUNCTION TO ADD ALL SHARDS
+--
+CREATE OR REPLACE PROCEDURE simple_reporting.reporting_patient_states_add_all_shards ()
+language plpgsql
+as $$
+DECLARE
+   target_month_date date;
+BEGIN
+FOR target_month_date IN
+    SELECT MONTH_DATE FROM public.reporting_months
+LOOP
+    call simple_reporting.reporting_patient_states_add_shard(target_month_date);
+END LOOP;
 END;
 $$;

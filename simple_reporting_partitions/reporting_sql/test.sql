@@ -63,18 +63,23 @@ call simple_reporting.reporting_patient_states_add_shard((current_date - interva
 call simple_reporting.reporting_patient_states_add_shard((current_date - interval '4 month' )::date) ;
 call simple_reporting.reporting_patient_states_add_shard((current_date - interval '5 month' )::date) ;
 
+--
+-- Runs the procedure for each REPORTING_MONTH
+--
+call simple_reporting.reporting_patient_states_add_all_shards();
+
 -- TESTS REFRESHING THE OLD MVIEW
 CALL simple_reporting.MONITORED_EXECUTE(gen_random_uuid (), 'REPORTING_PATIENT_STATE_MATVIEW_ALL',
     'REFRESH MATERIALIZED VIEW public.reporting_patient_states');
-
-CALL simple_reporting.MONITORED_EXECUTE(gen_random_uuid (), 'REPORTING_PATIENT_STATE_PARTITION_ALL',
-    'call simple_reporting.reporting_patient_states_add_shard(current_date)');
+--
+--
+-- Refreshes only the current month with partitions
+CALL simple_reporting.reporting_patient_states_add_shard(current_date);
 
 --
 -- Looking at audit table
 -- 
 select * from simple_reporting.SIMPLE_REPORTING_RUNS order by end_date desc;
-
 
 --
 -- Checking Execution plans for various queries to validate indexes are taken in account
@@ -85,6 +90,7 @@ explain select sum(age) from simple_reporting.reporting_patient_states where age
 explain select sum(age) from simple_reporting.reporting_patient_states where age > 90;
 explain select sum(age) from simple_reporting.reporting_patient_states where month_date > (current_date - interval '2 month');
 explain select sum(age) from simple_reporting.reporting_patient_states where month_date > (current_date - interval '2 month') and age > 90;
+explain select sum(age) from public.reporting_patient_states where month_date > (current_date - interval '2 month') and age > 90;
 
 update simple_reporting.reporting_patient_states
 set assigned_facility_id= '0044112d-70d5-4d8e-8a8a-1eac37d110ad'
@@ -111,3 +117,7 @@ select * from simple_reporting.SIMPLE_REPORTING_RUNS order by end_date desc;
 -- compare with old MView
 --
 REFRESH MATERIALIZED VIEW public.reporting_patient_states;
+
+
+
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('2018-07', 'YYYY-MM'));
