@@ -352,7 +352,6 @@ DECLARE
         || TARGET_TO_DATE || ');';
     RUN_KEY uuid := gen_random_uuid ();
 BEGIN
-    -- DELETES THE OLD SHARD
     CALL simple_reporting.MONITORED_EXECUTE(RUN_KEY, 'REPORTING_PATIENT_STATE_PARTITION_DROP ', DROP_STATEMENT);
     CALL simple_reporting.MONITORED_EXECUTE(RUN_KEY, 'REPORTING_PATIENT_STATE_PARTITION_CTAS ', CTAS_STATEMENT);
     CALL simple_reporting.MONITORED_EXECUTE(RUN_KEY, 'REPORTING_PATIENT_STATE_PARTITION_UIND ', UIND_STATEMENT);
@@ -385,10 +384,10 @@ as $$
 DECLARE
    target_month_date date;
 BEGIN
-FOR target_month_date IN
-    SELECT MONTH_DATE FROM public.reporting_months
+FOR target_month_date IN (SELECT MONTH_DATE FROM public.reporting_months order by MONTH_DATE desc)
 LOOP
     call simple_reporting.reporting_patient_states_add_shard(target_month_date);
+    commit;
 END LOOP;
 END;
 $$;
