@@ -62,3 +62,151 @@ call simple_reporting.reporting_patient_states_add_shard((current_date - interva
 call simple_reporting.reporting_patient_states_add_shard((current_date - interval '3 month' )::date) ;
 call simple_reporting.reporting_patient_states_add_shard((current_date - interval '4 month' )::date) ;
 call simple_reporting.reporting_patient_states_add_shard((current_date - interval '5 month' )::date) ;
+
+
+--
+-- Fixing partially done data
+--
+
+
+
+select count(*) from information_schema.tables where table_name like '%shard%';
+
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201812','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201811','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201810','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201809','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201808','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201807','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201806','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201805','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201804','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201803','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201802','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201801','YYYYMM')) ;
+
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201912','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201911','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201910','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201909','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201908','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201907','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201906','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201905','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201904','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201903','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201902','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201901','YYYYMM')) ;
+
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202012','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202011','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202010','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202009','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202008','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202007','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202006','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202005','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202004','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202003','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202002','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202001','YYYYMM')) ;
+
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202112','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202111','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202110','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202109','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202108','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202107','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202106','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202105','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202104','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202103','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202102','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202101','YYYYMM')) ;
+
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202212','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202211','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202210','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202209','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202208','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202207','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202206','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202205','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202204','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202203','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202202','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202201','YYYYMM')) ;
+
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202312','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202311','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202310','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202309','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202308','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202307','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202306','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202305','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202304','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202303','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202302','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202301','YYYYMM')) ;
+
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202412','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202411','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202410','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202409','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202408','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202407','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202406','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202405','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202404','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202403','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202402','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202401','YYYYMM')) ;
+
+
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202501','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202502','YYYYMM')) ;
+call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202503','YYYYMM')) ;
+
+
+
+select schemaname, sum(pg_relation_size('' || schemaname||'.' || tablename) )
+FROM pg_catalog.pg_tables where tablename like '%states%'  group by schemaname;
+
+select  pg_relation_size('' || schemaname||'.' || tablename) , * FROM pg_catalog.pg_tables where tablename like '%states%' ;
+
+
+select pg_relation_size('public.reporting_patient_states'); 
+
+
+select schemaname,sum(pg_relation_size('' || schemaname||'.' || indexname))
+ from pg_indexes where tablename like '%states%'
+  group by schemaname
+order by schemaname desc;
+
+select pg_relation_size('my_object_times_name_gin_trgm_idx');
+
+select 1;
+
+
+select month_date, count(*) from simple_reporting.reporting_patient_states group by month_date order by 1 desc;
+select month_date, count(*) from simple_reporting.reporting_patient_states group by month_date order by 1 desc;
+
+
+select simple_reporting.reporting_patient_states.month_date, count(*)
+from simple_reporting.reporting_patient_states
+full outer join public.reporting_patient_states on (
+    simple_reporting.reporting_patient_states.patient_id = public.reporting_patient_states.patient_id 
+    and simple_reporting.reporting_patient_states.month_date = public.reporting_patient_states.month_date )
+group  by simple_reporting.reporting_patient_states.month_date
+order by 1 desc;
+
+where 
+    simple_reporting.reporting_patient_states.patient_id is null
+    or public.reporting_patient_states.patient_id is null
+group by case when simple_reporting.reporting_patient_states.patient_id is null then 'new_is_missing'
+               else 'old_is_missing' end ;
+
+
+
+

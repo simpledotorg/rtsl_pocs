@@ -298,8 +298,7 @@ SELECT
         OR current_meds.hydrochlorothiazide > past_meds.hydrochlorothiazide) AS titrated
 
 FROM public.patients p
-LEFT OUTER JOIN public.reporting_months cal
-    on (cal.month_date = $1)
+JOIN public.reporting_months cal on (cal.month_date = $1 and p.recorded_at <= cal.month_date + interval '1 month' )
 -- Only fetch BPs and visits that happened on or before the selected calendar month
 -- We use year and month comparisons to avoid timezone errors
 LEFT OUTER JOIN public.reporting_patient_blood_pressures bps
