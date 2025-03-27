@@ -8,7 +8,7 @@ select * from simple_reporting.reporting_patient_states_table_function ( date)
 select * from simple_reporting.reporting_patient_states_table_function(date_trunc('month', current_date)::date);
 
 select * from public.reporting_patient_states where month_date = date_trunc('month', current_date)::date;
-select * from public.reporting_patient_states
+select * from public.reporting_patient_states;
 
 
 
@@ -65,11 +65,8 @@ call simple_reporting.reporting_patient_states_add_shard((current_date - interva
 
 
 --
--- Fixing partially done data
+-- Run all the shards at once
 --
-
-
-
 select count(*) from information_schema.tables where table_name like '%shard%';
 
 call simple_reporting.reporting_patient_states_add_shard(TO_DATE('201812','YYYYMM')) ;
@@ -168,29 +165,34 @@ call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202501','YYYYM
 call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202502','YYYYMM')) ;
 call simple_reporting.reporting_patient_states_add_shard(TO_DATE('202503','YYYYMM')) ;
 
+--
+-- REFRESH MATVIEW
+--
+CALL simple_reporting.MONITORED_EXECUTE(gen_random_uuid (), 'REPORTING_PATIENT_STATE_MATVIEW_ALL',
+    'REFRESH MATERIALIZED VIEW public.reporting_patient_states');
 
-
+--
+-- GETTING TABLE SIZES
+--
 select schemaname, sum(pg_relation_size('' || schemaname||'.' || tablename) )
 FROM pg_catalog.pg_tables where tablename like '%states%'  group by schemaname;
 
-select  pg_relation_size('' || schemaname||'.' || tablename) , * FROM pg_catalog.pg_tables where tablename like '%states%' ;
-
-
 select pg_relation_size('public.reporting_patient_states'); 
 
-
+--
+-- INDEX SIZES
+--
 select schemaname,sum(pg_relation_size('' || schemaname||'.' || indexname))
  from pg_indexes where tablename like '%states%'
   group by schemaname
 order by schemaname desc;
 
-select pg_relation_size('my_object_times_name_gin_trgm_idx');
 
-select 1;
-
-
+--
+-- number of lines
+--
 select month_date, count(*) from simple_reporting.reporting_patient_states group by month_date order by 1 desc;
-select month_date, count(*) from simple_reporting.reporting_patient_states group by month_date order by 1 desc;
+select month_date, count(*) from public.reporting_patient_states group by month_date order by 1 desc;
 
 
 select simple_reporting.reporting_patient_states.month_date, count(*)
@@ -201,12 +203,25 @@ full outer join public.reporting_patient_states on (
 group  by simple_reporting.reporting_patient_states.month_date
 order by 1 desc;
 
-where 
-    simple_reporting.reporting_patient_states.patient_id is null
-    or public.reporting_patient_states.patient_id is null
-group by case when simple_reporting.reporting_patient_states.patient_id is null then 'new_is_missing'
-               else 'old_is_missing' end ;
+--
+-- MISSING LINES
+-- 
 
+with
+MATVIEW_DATA as 
+(select * from public.reporting_patient_states where month_date= TO_DATE('202410','YYYYMM')),
+PARTABLE_DATA as
+(select * from simple_reporting.reporting_patient_states where month_date= TO_DATE('202410','YYYYMM'))
+select sum(MATVIEW_DATA.systolic), sum(PARTABLE_DATA.systolic)
+from PARTABLE_DATA
+full outer join MATVIEW_DATA on (MATVIEW_DATA.patient_id =PARTABLE_DATA.patient_id);
 
-
-
+with
+MATVIEW_DATA as 
+(select * from public.reporting_patient_states where month_date= TO_DATE('202410','YYYYMM')),
+PARTABLE_DATA as
+(select * from simple_reporting.reporting_patient_states where month_date= TO_DATE('202410','YYYYMM'))
+select *
+from PARTABLE_DATA
+full outer join MATVIEW_DATA on (MATVIEW_DATA.patient_id =PARTABLE_DATA.patient_id)
+where MATVIEW_DATA.patient_id is null or PARTABLE_DATA.patient_id is null;
