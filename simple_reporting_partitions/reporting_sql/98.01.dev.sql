@@ -191,8 +191,16 @@ order by schemaname desc;
 --
 -- number of lines
 --
-select month_date, count(*) from simple_reporting.reporting_patient_states group by month_date order by 1 desc;
-select month_date, count(*) from public.reporting_patient_states group by month_date order by 1 desc;
+with 
+PARTABLE_DATA as 
+(select month_date, count(*) as NB_PARTABLE_LINES from simple_reporting.reporting_patient_states group by month_date order by 1 desc),
+MATVIEW_DATA as
+(select month_date, count(*) as NB_MATVIEW_LINES from public.reporting_patient_states group by month_date order by 1 desc)
+select *,  NB_PARTABLE_LINES - NB_MATVIEW_LINES as gap
+from MATVIEW_DATA
+full outer join PARTABLE_DATA on PARTABLE_DATA.month_date = MATVIEW_DATA.month_date
+order by 1 desc;
+
 
 
 select simple_reporting.reporting_patient_states.month_date, count(*)
@@ -209,19 +217,19 @@ order by 1 desc;
 
 with
 MATVIEW_DATA as 
-(select * from public.reporting_patient_states where month_date= TO_DATE('202410','YYYYMM')),
+(select * from public.reporting_patient_states where month_date= TO_DATE('202501','YYYYMM')),
 PARTABLE_DATA as
-(select * from simple_reporting.reporting_patient_states where month_date= TO_DATE('202410','YYYYMM'))
+(select * from simple_reporting.reporting_patient_states where month_date= TO_DATE('202501','YYYYMM'))
 select sum(MATVIEW_DATA.systolic), sum(PARTABLE_DATA.systolic)
 from PARTABLE_DATA
 full outer join MATVIEW_DATA on (MATVIEW_DATA.patient_id =PARTABLE_DATA.patient_id);
 
 with
 MATVIEW_DATA as 
-(select * from public.reporting_patient_states where month_date= TO_DATE('202410','YYYYMM')),
+(select * from public.reporting_patient_states where month_date= TO_DATE('202501','YYYYMM')),
 PARTABLE_DATA as
-(select * from simple_reporting.reporting_patient_states where month_date= TO_DATE('202410','YYYYMM'))
-select *
+(select * from simple_reporting.reporting_patient_states where month_date= TO_DATE('202501','YYYYMM'))
+select PARTABLE_DATA.recorded_at,PARTABLE_DATA.recorded_at::timestamp at time zone 'utc',*
 from PARTABLE_DATA
 full outer join MATVIEW_DATA on (MATVIEW_DATA.patient_id =PARTABLE_DATA.patient_id)
 where MATVIEW_DATA.patient_id is null or PARTABLE_DATA.patient_id is null;
