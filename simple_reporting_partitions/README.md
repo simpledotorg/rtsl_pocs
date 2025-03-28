@@ -35,5 +35,15 @@ Possibly this could be duplicated for the real implementation in order to facili
 
 The materialize view is replaced with the following elements:
 
+| Object  | Purpose | Comment |
+| ------------- | ------------- | ------------- |
+| reporting_patient_states  | The paritionned table | Created empty and without any parition, but with **all the indexes** and constraints as the original VMiew. It has the same columns/types as the Mview |
+| reporting_patient_states_table_function ( date)   | Table function returning the data for a given month | Using a table function allows to separate data calculation from all the operations related to storage. It also allows testing it independently. This table function is a copy/paste of the code of the MView with very few changes (adapted join condition + removed order by). This is to ensure data consistency |
+| reporting_patient_states_add_shard (date)  | Procedure that creates one shard | Takes the month_date as a parameter, and creates the parition (shard) for that month, and attach it to the main table |
+| reporting_patient_states_add_all_shards ()  | Procedure that creates all shards | Simply calls reporting_patient_states_add_shard for all the months in **PUBLIC.REPORTING_MONTHS** |
+
+These elements are present in that file:
+- https://github.com/simpledotorg/rtsl_pocs/blob/main/simple_reporting_partitions/reporting_sql/02.01.reporting_patient_states.sql
+
 
 
