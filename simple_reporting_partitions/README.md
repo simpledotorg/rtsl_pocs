@@ -45,5 +45,8 @@ The materialize view is replaced with the following elements:
 These elements are present in that file:
 - https://github.com/simpledotorg/rtsl_pocs/blob/main/simple_reporting_partitions/reporting_sql/02.01.reporting_patient_states.sql
 
+## Performances
 
+Performance facts have been recorded in this document:
+- https://docs.google.com/spreadsheets/d/1rklb5TpNNRWIcZO6fVBjpf19uCdqsfKHs57g7oVyImM
 
