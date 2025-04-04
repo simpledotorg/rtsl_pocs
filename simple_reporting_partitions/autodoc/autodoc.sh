@@ -12,7 +12,7 @@ time java -cp "./target/dependency/*" org.schemaspy.Main -t pgsql11 \
   -u postgres \
   -p password \
   -host localhost \
-  -norows \
+  -norows -nopages \
   -rails \
   -o ./target/htmldoc 
 
